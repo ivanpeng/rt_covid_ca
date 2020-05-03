@@ -3,6 +3,7 @@ channels:
   - defaults
 dependencies:
   - appnope=0.1.0
+  - asn1crypto=1.3.0
   - attrs=19.3.0
   - backcall=0.1.0
   - blas=1.0
@@ -10,11 +11,14 @@ dependencies:
   - ca-certificates=2020.1.1
   - cctools=895
   - certifi=2020.4.5.1
+  - cffi=1.14.0
+  - chardet=3.0.4
   - clang=4.0.1
   - clang_osx-64=4.0.1
   - clangxx=4.0.1
   - clangxx_osx-64=4.0.1
   - compiler-rt=4.0.1
+  - cryptography=2.8
   - cycler=0.10.0
   - decorator=4.4.2
   - defusedxml=0.6.0
@@ -22,6 +26,7 @@ dependencies:
   - freetype=2.9.1
   - h5py=2.10.0
   - hdf5=1.10.4
+  - idna=2.9
   - importlib_metadata=1.5.0
   - intel-openmp=2019.4
   - ipykernel=5.1.4
@@ -71,15 +76,19 @@ dependencies:
   - prompt-toolkit=3.0.4
   - prompt_toolkit=3.0.4
   - ptyprocess=0.6.0
+  - pycparser=2.20
   - pygments=2.6.1
   - pymc3=3.6
+  - pyopenssl=19.1.0
   - pyparsing=2.4.7
   - pyrsistent=0.16.0
+  - pysocks=1.7.1
   - python=3.7.7
   - python-dateutil=2.8.1
   - pytz=2019.3
   - pyzmq=18.1.1
   - readline=8.0
+  - requests=2.23.0
   - scipy=1.4.1
   - send2trash=1.5.0
   - setuptools=46.1.3
@@ -92,6 +101,7 @@ dependencies:
   - tornado=6.0.4
   - tqdm=4.45.0
   - traitlets=4.3.3
+  - urllib3=1.25.8
   - wcwidth=0.1.9
   - webencodings=0.5.1
   - wheel=0.34.2
