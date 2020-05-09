@@ -229,6 +229,9 @@ def transform_df_to_dict(df):
         # val is a dict of ML, Low_90, High_90
         # data needs to be an array of literally combination of all keys + values into one object
         province, ds = key
+        # Discard anything before 2020-03-11
+        if ds < datetime(2020, 3, 11, 0, 0, 0):
+            continue
         val = d[key]
         obj = {'province': province_lookup_map[province],
                'date': int(ds.strftime('%s')),
@@ -251,7 +254,7 @@ def run():
     df = pd.read_csv(file_path, parse_dates=['date_report'], date_parser=date_parser)
     # "case_id","provincial_case_id","age","sex","health_region","province","country","date_report","report_week","travel_yn","travel_history_country","locally_acquired","case_source","additional_info","additional_source","method_note"
     # Filter by province because data is not complete for some provinces
-    df = df[~df['province'].isin(['Nunavut', 'Repatriated'])]
+    df = df[~df['province'].isin(['Nunavut', 'Repatriated', 'Yukon', 'NWT', 'PEI'])]
     cases = df.groupby(['province', 'date_report']).count()[['case_id']].rename(
         columns={"case_id": 'confirmed_cases_by_day'})
     province_df = cases['confirmed_cases_by_day']
@@ -260,7 +263,7 @@ def run():
 
     final_results = pd.concat(results)
     data = transform_df_to_dict(final_results)
-    io.write_dict_to_file(data)
+    io.write_dict_to_file(data, 'whatever for now')
 
 
 if __name__ == "__main__":

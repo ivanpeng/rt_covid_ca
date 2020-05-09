@@ -15,8 +15,9 @@ def write_dict_to_file(dict_obj, abs_path, date=datetime.date.today().strftime("
     :return:
     """
     abs_path = '../export/data_by_day/rt-ca-{}.json'.format(date)
+    timestamp = datetime.datetime.today().strftime("%s")
     with open(abs_path, 'w') as fp:
-        json.dump({"columns": ["province", "date", "ML", "Low_90", "High_90"], "data": dict_obj}, fp)
+        json.dump({"last_updated_timestamp": timestamp, "data": dict_obj}, fp)
 
 
 def download_can_case_file(url="https://raw.githubusercontent.com/ishaberry/Covid19Canada/master/cases.csv",
