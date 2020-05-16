@@ -244,9 +244,9 @@ def transform_df_to_dict(df):
 
 
 def run():
-    # First download data
+    # Assume data is already downloaded to the specific region
     file_path = "../data/linelist.csv"
-    io.download_can_case_file(filename=file_path)
+    #io.download_can_case_file(filename=file_path)
 
     # Read data into pandas DF and do some simple filtering
     date_parser = lambda d: datetime.strptime(d, "%d-%m-%Y")
